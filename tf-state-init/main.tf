@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_storage_account" "tfstate" {
-  name                     = "tfStorageState"
+  name                     = "tfstoragestate"
   resource_group_name      = "devops_project_ecom"
   location                 = "UK West"
   account_tier             = "Standard"
