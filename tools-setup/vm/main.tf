@@ -25,6 +25,7 @@ resource "azurerm_network_interface_security_group_association" "nsg-allow" {
 }
 
 resource "azurerm_virtual_machine" "vm" {
+  depends_on                    = [ azurerm_network_interface.privateip ]
   name                          = var.name
   location                      = var.location
   resource_group_name           = var.rg_name
