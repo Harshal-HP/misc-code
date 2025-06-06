@@ -60,6 +60,7 @@ resource "azurerm_virtual_machine" "vm" {
 }
 
 resource "azurerm_dns_a_record" "dns_private" {
+  depends_on            = [ azurerm_virtual_machine.vm ]
   name                  = "${var.name}-int"
   zone_name             = "harshaldevops.online"
   resource_group_name   = var.rg_name
