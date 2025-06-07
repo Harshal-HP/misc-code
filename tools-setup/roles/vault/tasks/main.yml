@@ -1,0 +1,9 @@
+- name: download repo file
+  get_url:
+    url: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+    dest: /etc/yum.repos.d/hashicorp.repo
+
+- name: install vault
+  dnf:
+    name: vault
+    state: installed
