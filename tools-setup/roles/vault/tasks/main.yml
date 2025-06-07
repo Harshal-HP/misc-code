@@ -7,3 +7,14 @@
   dnf:
     name: vault
     state: installed
+
+- name: enable http in vault.hcl file
+  file:
+    src: vault.hcl
+    dest: /etc/vault.d/vault.hcl
+
+- name: start vault service
+  systemd_service:
+    name: vault
+    state: started
+    enabled: true
