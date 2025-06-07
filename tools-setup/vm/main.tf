@@ -43,7 +43,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
     managed_disk_type = "Standard_LRS"
   }
 #  delete_os_disk_on_termination = true
-# 
+#
 #   os_profile_linux_config {
 #     disable_password_authentication = false
 #   }
