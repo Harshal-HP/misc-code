@@ -44,11 +44,13 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 
   priority = "spot"
+  max_bid_price = -1
+  eviction_policy = "Deallocate"
 
 #  delete_os_disk_on_termination = true
 #
 #   os_profile_linux_config {
-#     disable_password_authentication = false
+  disable_password_authentication = false
 #   }
 }
 
