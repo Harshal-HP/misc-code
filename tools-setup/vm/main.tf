@@ -42,6 +42,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
 #    create_option       = "FromImage"
     storage_account_type = "Standard_LRS"
   }
+
+  priority = "spot"
+
 #  delete_os_disk_on_termination = true
 #
 #   os_profile_linux_config {
