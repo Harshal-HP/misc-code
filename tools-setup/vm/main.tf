@@ -26,15 +26,19 @@ resource "azurerm_network_interface_security_group_association" "nsg-allow" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  location              = var.location
-  name                  = var.name
-  network_interface_ids = [azurerm_network_interface.privateip.id]
-  resource_group_name   = var.rg_name
-  size                  = var.vm_size
-  admin_username        = "harshal"
-  admin_password        = "harshal@12345"
-
-  source_image_id = "/subscriptions/4a491ea7-cd6d-4ec6-aa18-28b31973e70c/resourceGroups/devops_project_ecom/providers/Microsoft.Compute/images/image"
+  location                        = var.location
+  name                            = var.name
+  network_interface_ids           = [azurerm_network_interface.privateip.id]
+  resource_group_name             = var.rg_name
+  size                            = var.vm_size
+  admin_username                  = "harshal"
+  admin_password                  = "harshal@12345"
+  #spot machine details
+  priority                        = "Spot"
+  max_bid_price                   = -1
+  eviction_policy                 = "Deallocate"
+  disable_password_authentication = false
+  source_image_id                 = "/subscriptions/4a491ea7-cd6d-4ec6-aa18-28b31973e70c/resourceGroups/devops_project_ecom/providers/Microsoft.Compute/images/image"
 
   os_disk {
     name                 = "${var.name}-disk"
@@ -42,16 +46,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 #    create_option       = "FromImage"
     storage_account_type = "Standard_LRS"
   }
-
-  priority = "Spot"
-  max_bid_price = -1
-  eviction_policy = "Deallocate"
-
 #  delete_os_disk_on_termination = true
-#
-#   os_profile_linux_config {
-  disable_password_authentication = false
-#   }
 }
 
 # resource "azurerm_virtual_machine" "vm" {
