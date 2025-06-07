@@ -9,7 +9,7 @@
     state: installed
 
 - name: enable http in vault.hcl file
-  file:
+  copy:
     src: vault.hcl
     dest: /etc/vault.d/vault.hcl
 
