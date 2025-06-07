@@ -36,17 +36,17 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   source_image_id = "/subscriptions/4a491ea7-cd6d-4ec6-aa18-28b31973e70c/resourceGroups/devops_project_ecom/providers/Microsoft.Compute/images/image"
 
-  storage_os_disk {
+  os_disk {
     name              = "${var.name}-disk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
-  delete_os_disk_on_termination = true
-
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
+#  delete_os_disk_on_termination = true
+# 
+#   os_profile_linux_config {
+#     disable_password_authentication = false
+#   }
 }
 
 # resource "azurerm_virtual_machine" "vm" {
