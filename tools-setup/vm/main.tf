@@ -37,10 +37,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
   source_image_id = "/subscriptions/4a491ea7-cd6d-4ec6-aa18-28b31973e70c/resourceGroups/devops_project_ecom/providers/Microsoft.Compute/images/image"
 
   os_disk {
-    name              = "${var.name}-disk"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+    name                 = "${var.name}-disk"
+    caching              = "ReadWrite"
+#    create_option       = "FromImage"
+    storage_account_type = "Standard_LRS"
   }
 #  delete_os_disk_on_termination = true
 #
