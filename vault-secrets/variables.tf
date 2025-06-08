@@ -10,7 +10,7 @@ variable "secrets" {
 
 variable "values" {
   default = {
-    cart = {
+    ssh = {
       secret = "roboshop-dev"
       values = {
         username = "harshal"
