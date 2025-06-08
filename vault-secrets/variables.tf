@@ -2,7 +2,7 @@ variable "token" {}
 
 variable "secrets" {
   default = {
-    roboshop-dev = {
+    roboshop-infra = {
       description = "Roboshop app components all secrets"
     }
   }
@@ -11,7 +11,7 @@ variable "secrets" {
 variable "values" {
   default = {
     ssh = {
-      secret = "roboshop-dev"
+      secret = "roboshop-infra"
       values = {
         username = "harshal"
         password = "harshal@12345"
