@@ -31,7 +31,7 @@ variable "values" {
       }
     }
     cart = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         REDIS_HOST = "redis-dev.harshaldevops.online"
         CATALOGUE_HOST = "catalogue-dev.harshaldevops.online"
@@ -39,14 +39,14 @@ variable "values" {
       }
     }
     catalogue = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         MONGO     = "true"
         MONGO_URL = "mongodb://mongodb-dev.harshaldevops.online:27017/catalogue"
       }
     }
     dispatch = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         AMQP_HOST = "rabbitmq-dev.harshaldevops.online"
         AMQP_USER = "roboshop"
@@ -54,7 +54,7 @@ variable "values" {
      }
     }
     payment = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         CART_HOST = "cart-dev.harshaldevops.online"
         CART_PORT = 8080
@@ -66,7 +66,7 @@ variable "values" {
       }
     }
     shipping = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         CART_ENDPOINT = "cart-dev.harshaldevops.online:8080"
         DB_HOST = "mysql-dev.harshaldevops.online"
@@ -75,7 +75,7 @@ variable "values" {
       }
     }
     user = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         MONGO     = "true"
         REDIS_URL = "redis://redis-dev.harshaldevops.online:6379"
@@ -83,14 +83,14 @@ variable "values" {
       }
     }
     rabbitmq = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         username = "roboshop"
         password = "roboshop123"
       }
     }
     mysql = {
-      secret = "frontend-dev"
+      secret = "roboshop-dev"
       values = {
         password = "RoboShop@1"
       }
