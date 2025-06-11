@@ -23,11 +23,12 @@ variable "values" {
     frontend = {
       secret = "roboshop-dev"
       values = {
-        catalogue-url = "http://catalogue-dev.harshaldevops.online:8080/"
-        user-url = "http://user-dev.harshaldevops.online:8080/"
-        cart-url = "http://cart-dev.harshaldevops.online:8080/"
-        shipping-url = "http://shipping-dev.harshaldevops.online:8080/"
-        payment-url = "http://payment-dev.harshaldevops.online:8080/"
+        catalogue-url  = "http://catalogue-dev.harshaldevops.online:8080/"
+        user-url       = "http://user-dev.harshaldevops.online:8080/"
+        cart-url       = "http://cart-dev.harshaldevops.online:8080/"
+        shipping-url   = "http://shipping-dev.harshaldevops.online:8080/"
+        payment-url    = "http://payment-dev.harshaldevops.online:8080/"
+        CATALOGUE_HOST = "catalogue-ip"
       }
     }
     cart = {
@@ -72,9 +73,10 @@ variable "values" {
       secret = "roboshop-dev"
       values = {
         CART_ENDPOINT = "cart-dev.harshaldevops.online:8080"
-        DB_HOST = "mysql-dev.harshaldevops.online"
-        username = "root"
-        password = "RoboShop@1"
+        DB_HOST       = "mysql-dev.harshaldevops.online"
+        username      = "root"
+        password      = "RoboShop@1"
+        DB_TYPE       = "mysql"
       }
     }
     user = {
