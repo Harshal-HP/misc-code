@@ -30,6 +30,14 @@ variable "values" {
         payment-url    = "http://payment-dev.harshaldevops.online:8080/"
         CATALOGUE_HOST = "catalogue-ip"
         CATALOGUE_PORT = "catalogue-port"
+        USER_HOST = "user-host"
+        USER_PORT = "user-port"
+        CART_HOST = "cart-host"
+        CART_PORT = "cart-port"
+        SHIPPING_HOST = "shipping-host"
+        SHIPPING_PORT = "shipping-port"
+        PAYMENT_HOST = "payment-host"
+        PAYMENT_PORT = "payment-port"
       }
     }
     cart = {
@@ -48,6 +56,7 @@ variable "values" {
         DB_TYPE     = "mongo"
         APP_GIT_URL = "https://github.com/roboshop-devops-project-v3/catalogue"
         DB_HOST     = "mongo-ip"
+        SCHEMA_FILE = "db/master-data.js"
       }
     }
     dispatch = {
