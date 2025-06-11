@@ -78,6 +78,7 @@ variable "values" {
         password      = "RoboShop@1"
         DB_TYPE       = "mysql"
         APP_GIT_URL   = "https://github.com/roboshop-devops-project-v3/shipping"
+        DB_USER       = "root"
       }
     }
     user = {
