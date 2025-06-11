@@ -55,7 +55,7 @@ variable "values" {
         MONGO_URL   = "mongodb://mongodb-dev.harshaldevops.online:27017/catalogue"
         DB_TYPE     = "mongo"
         APP_GIT_URL = "https://github.com/roboshop-devops-project-v3/catalogue"
-        DB_HOST     = "mongo-ip"
+        DB_HOST     = "mongodb-dev.rdevopsb84.online"
         SCHEMA_FILE = "db/master-data.js"
       }
     }
