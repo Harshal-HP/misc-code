@@ -29,6 +29,7 @@ variable "values" {
         shipping-url   = "http://shipping-dev.harshaldevops.online:8080/"
         payment-url    = "http://payment-dev.harshaldevops.online:8080/"
         CATALOGUE_HOST = "catalogue-ip"
+        CATALOGUE_PORT = "catalogue-port"
       }
     }
     cart = {
