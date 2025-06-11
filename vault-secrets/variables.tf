@@ -29,22 +29,22 @@ variable "values" {
         shipping-url   = "http://shipping-dev.harshaldevops.online:8080/"
         payment-url    = "http://payment-dev.harshaldevops.online:8080/"
         CATALOGUE_HOST = "catalogue"
-        CATALOGUE_PORT = 8080
+        CATALOGUE_PORT = "8080"
         USER_HOST      = "user"
-        USER_PORT      = 8080
+        USER_PORT      = "8080"
         CART_HOST      = "cart"
-        CART_PORT      = 8080
+        CART_PORT      = "8080"
         SHIPPING_HOST  = "shipping"
-        SHIPPING_PORT  = 8080
+        SHIPPING_PORT  = "8080"
         PAYMENT_HOST   = "payment"
-        PAYMENT_PORT   = 8080
+        PAYMENT_PORT   = "8080"
       }
     }
     cart = {
       secret = "roboshop-dev"
       values = {
         REDIS_HOST = "redis-dev.harshaldevops.online"
-        CATALOGUE_HOST = "catalogue-dev.harshaldevops.online"
+        CATALOGUE_HOST = "catalogue"
         CATALOGUE_PORT = 8080
       }
     }
@@ -70,10 +70,10 @@ variable "values" {
     payment = {
       secret = "roboshop-dev"
       values = {
-        CART_HOST = "cart-dev.harshaldevops.online"
-        CART_PORT = 8080
-        USER_HOST = "user-dev.harshaldevops.online"
-        USER_PORT = 8080
+        CART_HOST = "cart"
+        CART_PORT = "8080"
+        USER_HOST = "user"
+        USER_PORT = "8080"
         AMQP_HOST = "rabbitmq-dev.harshaldevops.online"
         AMQP_USER = "roboshop"
         AMQP_PASS = "roboshop123"
@@ -82,7 +82,7 @@ variable "values" {
     shipping = {
       secret = "roboshop-dev"
       values = {
-        CART_ENDPOINT = "cart-dev.harshaldevops.online:8080"
+        CART_ENDPOINT = "cart:8080"
         DB_HOST       = "mysql-dev.harshaldevops.online"
         username      = "root"
         password      = "RoboShop@1"
