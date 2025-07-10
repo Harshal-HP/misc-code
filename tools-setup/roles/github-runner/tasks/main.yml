@@ -20,6 +20,6 @@
     pull: always
     restart: true
     env:
-      ORG: "https://github.com/Harshal-HP"
-      TOKEN: "BJWE6T2X6U5MFMCUVZIPHGLIN7MZ6"
+      ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:ORG token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
+      TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:TOKEN token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
       NAME: "{{ item }}"
