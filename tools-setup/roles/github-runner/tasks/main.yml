@@ -1,0 +1,25 @@
+- name: download the docker repo file
+  get_url: 
+    url: https://download.docker.com/linux/rhel/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: install the docker in vm
+  dnf:
+    name: docker-ce
+    state: installed
+
+- name: create runner containers 
+  loop:
+    - runner-1
+    - runner-2
+    - runner-3
+  community.docker.docker_container:
+    name: "{{ item }}"
+    image: rkalluru/d84-github-runner
+    state: started
+    pull: always
+    restart: true
+    env:
+      ORG: "https://github.com/Harshal-HP"
+      TOKEN: "BJWE6T2X6U5MFMCUVZIPHGLIN7MZ6"
+      NAME: "{{ item }}"
