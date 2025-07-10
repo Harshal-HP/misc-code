@@ -3,6 +3,9 @@ variable "tools" {
     vault = {
         vm_size = "Standard_D2ls_v5"
     }
+    ansible_runner = {
+        vm_size = "Standard_D2ls_v5"
+    }
   }
 }
 
