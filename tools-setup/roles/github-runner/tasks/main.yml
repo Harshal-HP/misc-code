@@ -14,7 +14,7 @@
     - runner-2
     - runner-3
   community.docker.docker_container:
-    name: "{{ item }}"
+    name: {{ item }}
     image: rkalluru/d84-github-runner
     state: started
     pull: always
@@ -22,4 +22,4 @@
     env:
       ORG: "https://github.com/Harshal-HP"
       TOKEN: "BJWE6T2X6U5MFMCUVZIPHGLIN7MZ6"
-      NAME: "{{ item }}"
+      NAME: {{ item }}
