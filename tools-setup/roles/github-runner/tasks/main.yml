@@ -8,6 +8,12 @@
     name: docker-ce
     state: installed
 
+- name: add user to docker to avoid sudo issue
+  user:
+    name: harshal
+    groups: docker
+    append: yes
+    
 - name: start docker on vm
   systemd_service:
     name: docker
