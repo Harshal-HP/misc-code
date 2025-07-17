@@ -24,10 +24,9 @@
   loop:
     - runner-1
     - runner-2
-    - runner-3
   community.docker.docker_container:
     name: "{{ item }}"
-    image: rkalluru/github-runner
+    image: harshalhp/github-runner
     state: started 
     pull: always
     restart: true
