@@ -24,7 +24,6 @@ variable "values" {
       secret = "roboshop-infra"
       values = {
         ORG = "https://github.com/Harshal-HP",
-        TOKEN = "BJWE6T2X6U5MFMCUVZIPHGLIN7MZ6"
       }
     }
     frontend = {
