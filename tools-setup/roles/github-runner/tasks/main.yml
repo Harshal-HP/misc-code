@@ -20,6 +20,12 @@
     state: started
     enabled: true
 
+- name: Get Runner token
+  shell: |
+    gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28"   /orgs/Harshal-HP/actions/runners/registration-token | jq .token | xargs
+  delegate_to: localhost
+  register: gh_org_token
+
 - name: create runner containers 
   loop:
     - runner-1
@@ -32,5 +38,8 @@
     restart: true
     env:
       ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:ORG token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
-      TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:TOKEN token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
+      TOKEN: "{{ gh_org_token.stdout }}"
       NAME: "{{ item }}"
+      ARM_CLIENT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/azure-sp:ARM_CLIENT_ID token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
+      ARM_CLIENT_SECRET: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/azure-sp:ARM_CLIENT_SECRET token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
+      ARM_TENANT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/azure-sp:ARM_TENANT_ID token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
