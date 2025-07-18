@@ -22,7 +22,7 @@
 
 - name: Get Runner token
   shell: |
-    who am i
+    whoami
   delegate_to: localhost
   register: gh_org_token
 
