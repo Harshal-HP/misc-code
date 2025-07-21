@@ -28,10 +28,6 @@
   delegate_to: localhost
   register: gh_org_token
 
-- name: Print registered output
-  debug:
-    var: gh_org_token.stdout
-
 - name: create runner containers 
   loop:
     - runner-1
