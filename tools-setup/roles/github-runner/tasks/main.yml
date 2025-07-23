@@ -13,6 +13,9 @@
     name: harshal
     groups: docker
     append: yes
+
+- name: set docker .sock file permission 
+  shell: chmod o+rw /var/run/docker.sock
     
 - name: start docker on vm
   systemd_service:
@@ -37,6 +40,8 @@
     image: harshalhp/github-runner
     state: started 
     pull: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: true
     env:
       ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:ORG token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
