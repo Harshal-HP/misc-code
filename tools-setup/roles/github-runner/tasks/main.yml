@@ -8,9 +8,6 @@
     name: docker-ce
     state: installed
 
-- name: set docker .sock file permission 
-  shell: chmod o+rw /var/run/docker.sock
-
 - name: add user to docker to avoid sudo issue
   user:
     name: harshal
@@ -22,6 +19,9 @@
     name: docker
     state: started
     enabled: true
+
+- name: set docker .sock file permission 
+  shell: chmod o+rw /var/run/docker.sock
 
 - name: Get Runner token
   shell: |
