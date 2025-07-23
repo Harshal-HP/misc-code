@@ -8,14 +8,14 @@
     name: docker-ce
     state: installed
 
+- name: set docker .sock file permission 
+  shell: chmod o+rw /var/run/docker.sock
+
 - name: add user to docker to avoid sudo issue
   user:
     name: harshal
     groups: docker
     append: yes
-
-- name: set docker .sock file permission 
-  shell: chmod o+rw /var/run/docker.sock
     
 - name: start docker on vm
   systemd_service:
