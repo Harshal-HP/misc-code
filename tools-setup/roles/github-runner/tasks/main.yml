@@ -13,15 +13,21 @@
     name: harshal
     groups: docker
     append: yes
-    
+
+# - name: set docker .sock file permission 
+#   shell: chmod o+rw /var/run/docker.sock
+
+- name: set docker .xock file permission at boot
+  template:
+    src: docker.service
+    dest: /usr/lib/systemd/system/docker.service
+
 - name: start docker on vm
   systemd_service:
     name: docker
-    state: started
+    state: restarted
     enabled: true
-
-- name: set docker .sock file permission 
-  shell: chmod o+rw /var/run/docker.sock
+    daemon-reload: true
 
 - name: Get Runner token
   shell: |
@@ -43,6 +49,7 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: true
+    restart_policy: always
     env:
       ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:ORG token={{ token }} url=http://vault-int.harshaldevops.online:8200') }}"
       TOKEN: "{{ gh_org_token.stdout }}"
