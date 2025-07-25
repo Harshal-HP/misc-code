@@ -17,7 +17,7 @@
 # - name: set docker .sock file permission 
 #   shell: chmod o+rw /var/run/docker.sock
 
-- name: set docker .xock file permission at boot
+- name: set docker .sock file permission at boot
   template:
     src: docker.service
     dest: /usr/lib/systemd/system/docker.service
