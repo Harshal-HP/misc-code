@@ -7,7 +7,7 @@ variable "tools" {
         vm_size = "Standard_D2ls_v5"
     }
     elk-stack = {
-        vm_size = "Standard_D2ds_v6"
+        vm_size = "Standard_D2as_v5"
     }
   }
 }
